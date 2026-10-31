@@ -29,6 +29,9 @@ export function BottomNav() {
       <div className="boardlytics-mobile-logo-wrap" data-open={menuOpen ? "" : undefined}>
         {menuOpen && (
           <nav className="boardlytics-mobile-links" aria-label="Primary navigation">
+            <Link href="/" aria-current={pathname === "/" ? "page" : undefined} onClick={() => setMenuOpen(false)}>
+              Home
+            </Link>
             {nav.links.map((item) => (
               <Link key={item.href} href={item.href} aria-current={pathname === item.href ? "page" : undefined} onClick={() => setMenuOpen(false)}>
                 {item.label}
