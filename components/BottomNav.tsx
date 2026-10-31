@@ -11,6 +11,7 @@ export function BottomNav() {
   const pathname = usePathname();
   const [isMobile, setIsMobile] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [hasScrolled, setHasScrolled] = useState(false);
 
   useEffect(() => {
     const query = window.matchMedia("(max-width: 639px)");
@@ -20,13 +21,20 @@ export function BottomNav() {
     return () => query.removeEventListener("change", onChange);
   }, []);
 
+  useEffect(() => {
+    const onScroll = () => setHasScrolled(window.scrollY > 80);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   // The waitlist CTA already appears as its own button throughout every page,
   // so on mobile we drop it from the pill.
   const items = isMobile ? nav.links : [...nav.links, { label: nav.ctaDesktop, href: "/#waitlist" }];
 
   if (isMobile) {
     return (
-      <div className="boardlytics-mobile-logo-wrap" data-open={menuOpen ? "" : undefined}>
+      <div className={`boardlytics-mobile-logo-wrap ${hasScrolled || menuOpen ? "is-visible" : ""}`} data-open={menuOpen ? "" : undefined}>
         {menuOpen && (
           <nav className="boardlytics-mobile-links" aria-label="Primary navigation">
             <Link href="/" aria-current={pathname === "/" ? "page" : undefined} onClick={() => setMenuOpen(false)}>

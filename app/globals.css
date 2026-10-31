@@ -132,7 +132,17 @@ body {
   z-index: 50;
   display: flex;
   justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(0.75rem);
+  transition: opacity 220ms ease, transform 220ms ease, visibility 220ms;
   pointer-events: none;
+}
+
+.boardlytics-mobile-logo-wrap.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
 
 .boardlytics-mobile-links {
