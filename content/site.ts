@@ -383,10 +383,10 @@ export const footer = {
     },
     {
       heading: "Legal & support",
-      links: [{ label: "Privacy notice", href: "/privacy" }],
-      // Terms isn't written yet — shown as disabled text in the footer
-      // rather than a dead link.
-      comingSoon: [{ label: "Terms" }],
+      links: [
+        { label: "Privacy notice", href: "/privacy" },
+        { label: "Terms", href: "/terms" },
+      ],
     },
   ],
   cta: {
@@ -424,6 +424,40 @@ export const privacy = {
     {
       heading: "Cookies and analytics",
       body: "We do not set tracking cookies without first asking your consent. Once analytics are added to this site, we intend to use a privacy-friendly tool, such as Plausible or Vercel Analytics, to count visits and sign-ups rather than track individuals. [TODO — this site does not yet have analytics wired up; update this section once it does.]",
+    },
+  ],
+};
+
+export const terms = {
+  eyebrow: "Terms",
+  heading: "The terms for this website and the waiting list.",
+  lead: "Boardlytics has not launched yet. These terms cover this website and the waiting list only. They will be replaced by full terms of service when the product itself goes live.",
+  updated: "Last updated: 31 October 2026",
+  sections: [
+    {
+      heading: "What this covers",
+      body: "Boardlytics is still in development and has not launched as a product. This page sets out the terms for using boardlytics.com and for joining the waiting list described on it. It does not cover a live Boardlytics product, because one does not exist yet. We will publish separate terms of service before the product launches.",
+    },
+    {
+      heading: "Joining the waiting list",
+      body: "When you submit the waiting-list form, you are asking to be contacted about early access to Boardlytics. Joining the list does not create a contract for any product or service, does not guarantee you access, and does not commit you or Boardlytics to anything beyond what is described in our privacy notice.",
+    },
+    {
+      heading: "Accuracy of information on this site",
+      body: "We try to keep this website accurate, but it describes a product that is still being built. Features, pricing, availability and timelines described here may change before launch. Nothing on this site is a binding offer to supply a product or service.",
+    },
+    {
+      heading: "Acceptable use",
+      body: "You agree not to misuse this website: no attempting to access it in unauthorised ways, no submitting the waiting-list form with false information, and no using it to send unsolicited communications to us or to interfere with the site's operation.",
+    },
+    {
+      heading: "No warranty",
+      body: "This website and its content are provided as they are, without warranties of any kind, to the extent permitted by law. We are a company in development, not a provider of a live, supported product at this stage.",
+    },
+    {
+      heading: "Changes to these terms",
+      body: "We may update these terms as the site and the waiting list evolve. The date above shows when they were last changed. [TODO — founder to confirm a real contact address before launch; placeholder below.]",
+      contact: "info@boardlytics.com",
     },
   ],
 };
