@@ -60,7 +60,7 @@ export function BottomNav() {
         hoverEffect="fill"
         indicator="dot"
         surface="glass"
-        size={isMobile ? "sm" : "md"}
+        size="md"
         collapse={isMobile ? "never" : "auto"}
         highlightColor="#1461ff"
         ariaLabel="Primary"

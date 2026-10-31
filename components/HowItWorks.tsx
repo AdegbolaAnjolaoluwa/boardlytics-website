@@ -39,7 +39,7 @@ export function HowItWorks() {
           <p className="max-w-[48ch] text-[20px] font-semibold text-fg-strong sm:text-[24px]">
             {hero.headlineLine1} {hero.headlineLine2}
           </p>
-          <Button href="#waitlist" showArrow>
+          <Button href="/#waitlist" showArrow>
             {hero.ctaPrimary}
           </Button>
         </div>

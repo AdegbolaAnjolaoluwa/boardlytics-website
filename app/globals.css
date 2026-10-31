@@ -16,18 +16,6 @@
   --color-warn: #c2410c;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-bg: #07142b;
-    --color-bg-soft: #0b1c3a;
-    --color-fg: #d7e2f5;
-    --color-fg-strong: #f2f6ff;
-    --color-muted: #93a5c6;
-    --color-line: #1c335a;
-    --color-ok: #3cc98f;
-    --color-warn: #f08a5d;
-  }
-}
 
 @theme inline {
   --color-navy: var(--color-navy);
