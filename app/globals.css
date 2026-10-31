@@ -1,26 +1,144 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-navy: #0a1d3d;
+  --color-hero-bg: #081833;
+  --color-royal: #1461ff;
+  --color-medium: #5ca1ff;
+  --color-light: #cfe4ff;
+  --color-bg: #ffffff;
+  --color-bg-soft: #f4f7fc;
+  --color-fg: #2a3142;
+  --color-fg-strong: #1a2233;
+  --color-muted: #5a6478;
+  --color-line: #e2e8f2;
+  --color-ok: #0e8a5f;
+  --color-warn: #c2410c;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --color-bg: #07142b;
+    --color-bg-soft: #0b1c3a;
+    --color-fg: #d7e2f5;
+    --color-fg-strong: #f2f6ff;
+    --color-muted: #93a5c6;
+    --color-line: #1c335a;
+    --color-ok: #3cc98f;
+    --color-warn: #f08a5d;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@theme inline {
+  --color-navy: var(--color-navy);
+  --color-hero-bg: var(--color-hero-bg);
+  --color-royal: var(--color-royal);
+  --color-medium: var(--color-medium);
+  --color-light: var(--color-light);
+  --color-bg: var(--color-bg);
+  --color-bg-soft: var(--color-bg-soft);
+  --color-fg: var(--color-fg);
+  --color-fg-strong: var(--color-fg-strong);
+  --color-muted: var(--color-muted);
+  --color-line: var(--color-line);
+  --color-ok: var(--color-ok);
+  --color-warn: var(--color-warn);
+  --font-sans: var(--font-inter);
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-fg);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  font-variant-numeric: tabular-nums;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@keyframes grow-bar {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.animate-grow-bar {
+  transform-origin: left;
+  animation: grow-bar 0.8s ease-out forwards;
+}
+
+@keyframes pulse-dot {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+
+.animate-pulse-dot {
+  animation: pulse-dot 1.6s ease-in-out infinite;
+}
+
+@keyframes logo-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-logo-in {
+  animation: logo-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.field-input {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid var(--color-line);
+  background: var(--color-bg);
+  padding: 0.55rem 0.75rem;
+  font-size: 14px;
+  color: var(--color-fg);
+}
+
+.field-input:focus {
+  outline: none;
+  border-color: var(--color-royal);
+  box-shadow: 0 0 0 3px var(--color-medium);
+}
+
+/* PillNav is a bottom-fixed nav here, not a top header, so its collapsed
+   mobile menu panel must open upward instead of the component's default
+   downward drop (which pushes it off-screen when the bar sits near the
+   bottom of the viewport). */
+.pill-nav-upward .pill-nav.pill-nav .pill-nav__panel.pill-nav__panel {
+  top: auto !important;
+  bottom: 0 !important;
+  padding: 6px 6px calc(var(--pn-h) + 10px) !important;
+}
+
+.pill-nav-upward .pill-nav[data-layout="joined"].pill-nav .pill-nav__panel.pill-nav__panel {
+  padding-top: 6px !important;
+  padding-bottom: calc(var(--pn-h) + 4px) !important;
+}
+
