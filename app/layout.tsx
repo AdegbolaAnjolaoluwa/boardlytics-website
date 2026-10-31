@@ -16,8 +16,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  // TODO: swap for the real production domain once one is live.
-  metadataBase: new URL("https://boardlytics.com"),
+  // TODO: swap for the real production domain once boardlytics.com is live.
+  metadataBase: new URL("https://boardlytics-website.vercel.app"),
   title: meta.title,
   description: meta.description,
   openGraph: {
