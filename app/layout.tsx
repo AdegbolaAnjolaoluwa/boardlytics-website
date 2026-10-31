@@ -20,6 +20,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://boardlytics-website.vercel.app"),
   title: meta.title,
   description: meta.description,
+  icons: { icon: "/brand/mark.png", apple: "/brand/mark.png" },
   openGraph: {
     title: meta.title,
     description: meta.description,

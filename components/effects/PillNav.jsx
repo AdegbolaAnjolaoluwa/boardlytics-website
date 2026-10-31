@@ -735,11 +735,27 @@ const PillNav = ({
     >
       {logo && (
         <span ref={logoRef} className={[LOGO, joined ? '' : SURFACE].filter(Boolean).join(' ')}>
-          <LinkComponent href={logoHref} className={LOGO_LINK} aria-label={logoAlt} onPointerEnter={spin}>
+          {collapsed && className.includes('boardlytics-mobile-menu') ? (
+            <button
+              type="button"
+              className={LOGO_LINK}
+              aria-label={open ? 'Close menu' : 'Open menu'}
+              aria-expanded={open}
+              aria-controls={panelId}
+              onClick={toggle}
+              onPointerEnter={spin}
+            >
+              <span ref={markRef} className={MARK}>
+                {typeof logo === 'string' ? <img src={logo} alt="" draggable={false} /> : logo}
+              </span>
+            </button>
+          ) : (
+            <LinkComponent href={logoHref} className={LOGO_LINK} aria-label={logoAlt} onPointerEnter={spin}>
             <span ref={markRef} className={MARK}>
               {typeof logo === 'string' ? <img src={logo} alt="" draggable={false} /> : logo}
             </span>
-          </LinkComponent>
+            </LinkComponent>
+          )}
           {!joined && <span className={RIM} />}
         </span>
       )}
@@ -802,7 +818,7 @@ const PillNav = ({
         <button
           ref={toggleRef}
           type="button"
-          className={[TOGGLE, joined ? TOGGLE_BARE : SURFACE].join(' ')}
+          className={[TOGGLE, joined ? TOGGLE_BARE : SURFACE, className.includes('boardlytics-mobile-menu') ? 'boardlytics-menu-toggle' : ''].join(' ')}
           aria-expanded={open}
           aria-controls={panelId}
           aria-label={open ? 'Close menu' : 'Open menu'}

@@ -10,7 +10,7 @@ import { nav } from "@/content/site";
 export function BottomNav() {
   const pathname = usePathname();
   const [isMobile, setIsMobile] = useState(false);
-  const [hidden, setHidden] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const query = window.matchMedia("(max-width: 639px)");
@@ -20,31 +20,35 @@ export function BottomNav() {
     return () => query.removeEventListener("change", onChange);
   }, []);
 
-  // Hide the pill once the footer (with its own CTA/links) scrolls into view,
-  // so it doesn't float over the dark footer band.
-  useEffect(() => {
-    const footer = document.querySelector("footer");
-    if (!footer) return;
-    const observer = new IntersectionObserver(([entry]) => setHidden(entry.isIntersecting), {
-      rootMargin: "0px 0px -10% 0px",
-    });
-    observer.observe(footer);
-    return () => observer.disconnect();
-  }, [pathname]);
-
   // The waitlist CTA already appears as its own button throughout every page,
   // so on mobile we drop it from the pill.
   const items = isMobile ? nav.links : [...nav.links, { label: nav.ctaDesktop, href: "/#waitlist" }];
 
+  if (isMobile) {
+    return (
+      <div className="boardlytics-mobile-logo-wrap" data-open={menuOpen ? "" : undefined}>
+        {menuOpen && (
+          <nav className="boardlytics-mobile-links" aria-label="Primary navigation">
+            {nav.links.map((item) => (
+              <Link key={item.href} href={item.href} aria-current={pathname === item.href ? "page" : undefined} onClick={() => setMenuOpen(false)}>
+                {item.label}
+              </Link>
+            ))}
+            <Link href="/#waitlist" onClick={() => setMenuOpen(false)}>{nav.ctaDesktop}</Link>
+          </nav>
+        )}
+        <button type="button" aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"} aria-expanded={menuOpen} className="boardlytics-mobile-logo" onClick={() => setMenuOpen((open) => !open)}>
+          <Logo className="size-10" />
+          <span className="boardlytics-mobile-menu-glyph" aria-hidden="true">{menuOpen ? "×" : "☰"}</span>
+        </button>
+      </div>
+    );
+  }
+
   return (
-    <div
-      className={`pill-nav-upward fixed inset-x-0 z-50 flex justify-center px-4 transition-all duration-300 ${
-        hidden ? "pointer-events-none translate-y-4 opacity-0" : "opacity-100"
-      }`}
-      style={{ bottom: "max(1.25rem, env(safe-area-inset-bottom))" }}
-    >
+    <div className="pill-nav-upward fixed inset-x-0 z-50 flex justify-center px-4" style={{ bottom: "max(1.25rem, env(safe-area-inset-bottom))" }}>
       <PillNav
-        logo={isMobile ? undefined : <Logo className="size-5" />}
+        logo={<Logo className="size-5" />}
         logoAlt={nav.logoText}
         logoHref="/"
         items={items}
