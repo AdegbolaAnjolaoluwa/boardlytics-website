@@ -14,7 +14,7 @@ export const nav = {
 };
 
 export const hero = {
-  eyebrow: "Governance technology for Africa's boards",
+  eyebrow: "Governance technology for the modern board",
   headlineLine1: "The board meeting,",
   headlineLine2: "run properly.",
   lead: "Boardlytics runs the whole meeting in one secure place: the call, the agenda, quorum, votes, conflicts and the minutes, captured as evidence. Built for company secretaries, chairs and directors.",
@@ -75,7 +75,7 @@ export const visionMission = {
   cards: [
     {
       label: "Vision",
-      heading: "Every African board meeting run with the same rigour as its decisions.",
+      heading: "Every board meeting run with the same rigour as its decisions.",
       body: "We want board governance to be as well recorded and as well evidenced as the decisions it produces, for every board, not just the largest.",
     },
     {
@@ -383,10 +383,10 @@ export const footer = {
     },
     {
       heading: "Legal & support",
-      links: [
-        { label: "Privacy notice", href: "/privacy" },
-        { label: "Terms", href: "/terms" },
-      ],
+      links: [{ label: "Privacy notice", href: "/privacy" }],
+      // Terms isn't written yet — shown as disabled text in the footer
+      // rather than a dead link.
+      comingSoon: [{ label: "Terms" }],
     },
   ],
   cta: {
@@ -429,7 +429,7 @@ export const privacy = {
 };
 
 export const meta = {
-  title: "Boardlytics | Board meeting and governance software for Africa",
+  title: "Boardlytics | Board meeting and governance software",
   description:
     "Boardlytics runs the whole board meeting in one secure place: video, quorum, votes, conflicts and AI minutes with evidence. Join the waiting list.",
 };

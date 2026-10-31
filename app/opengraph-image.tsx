@@ -96,7 +96,7 @@ export default async function OpengraphImage() {
           </div>
 
           <span style={{ color: "rgba(255,255,255,0.6)", fontSize: 22, marginTop: 28, maxWidth: 480, lineHeight: 1.4 }}>
-            Governance technology for Africa&rsquo;s boards.
+            Governance technology for the modern board.
           </span>
         </div>
 

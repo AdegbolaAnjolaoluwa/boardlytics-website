@@ -24,6 +24,14 @@ export function Footer() {
                     </a>
                   </li>
                 ))}
+                {"comingSoon" in column &&
+                  column.comingSoon?.map((link) => (
+                    <li key={link.label}>
+                      <span className="cursor-default text-[14px] text-white/35" aria-disabled="true">
+                        {link.label}
+                      </span>
+                    </li>
+                  ))}
               </ul>
             </div>
           ))}
