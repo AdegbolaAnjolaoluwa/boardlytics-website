@@ -1,6 +1,6 @@
 "use client";
 
-import { Children, createContext, useContext, useEffect, useRef, useState, type ReactNode } from "react";
+import { createContext, useContext, useEffect, useRef, useState, type ReactNode } from "react";
 
 // Same defensive contract as Reveal: content is visible by default, JS only arms a
 // one-shot staggered entrance for items not already in view when the group mounts.
@@ -67,12 +67,3 @@ export function RevealItem({
   );
 }
 
-// Convenience: wrap a list of items with RevealItem by index without rewriting callers'
-// existing .map(...) bodies too heavily.
-export function withStagger(children: ReactNode) {
-  return Children.map(children, (child, i) => (
-    <RevealItem index={i} key={i}>
-      {child}
-    </RevealItem>
-  ));
-}

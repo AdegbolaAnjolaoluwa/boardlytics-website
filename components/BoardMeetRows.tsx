@@ -175,7 +175,6 @@ function RowPanel({ kind }: { kind: string }) {
     );
   }
 
-  // advisor
   return (
     <div className={base}>
       {header("AI advisor · seat", "Speaks on request")}
