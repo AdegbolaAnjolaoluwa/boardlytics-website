@@ -12,6 +12,7 @@ export function BottomNav() {
   const [isMobile, setIsMobile] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [hasScrolled, setHasScrolled] = useState(false);
+  const [hiddenAtFooter, setHiddenAtFooter] = useState(false);
 
   useEffect(() => {
     const query = window.matchMedia("(max-width: 639px)");
@@ -28,6 +29,18 @@ export function BottomNav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Hide the pill once the footer scrolls into view, so it never floats
+  // over footer content or bio text near the end of a page.
+  useEffect(() => {
+    const footer = document.querySelector("footer");
+    if (!footer) return;
+    const observer = new IntersectionObserver(([entry]) => setHiddenAtFooter(entry.isIntersecting), {
+      rootMargin: "0px 0px -10% 0px",
+    });
+    observer.observe(footer);
+    return () => observer.disconnect();
+  }, [pathname]);
+
   // The waitlist CTA already appears as its own button throughout every page,
   // so on mobile we drop it from the pill.
   const items = isMobile
@@ -36,7 +49,10 @@ export function BottomNav() {
 
   if (isMobile) {
     return (
-      <div className={`boardlytics-mobile-logo-wrap ${hasScrolled || menuOpen ? "is-visible" : ""}`} data-open={menuOpen ? "" : undefined}>
+      <div
+        className={`boardlytics-mobile-logo-wrap ${hasScrolled && !hiddenAtFooter ? "is-visible" : ""}`}
+        data-open={menuOpen ? "" : undefined}
+      >
         {menuOpen && (
           <nav className="boardlytics-mobile-links" aria-label="Primary navigation">
             <Link href="/" aria-current={pathname === "/" ? "page" : undefined} onClick={() => setMenuOpen(false)}>
@@ -61,7 +77,12 @@ export function BottomNav() {
   }
 
   return (
-    <div className="pill-nav-upward fixed inset-x-0 z-50 flex justify-center px-4" style={{ bottom: "max(1.25rem, env(safe-area-inset-bottom))" }}>
+    <div
+      className={`pill-nav-upward fixed inset-x-0 z-50 flex justify-center px-4 transition-opacity duration-300 ${
+        hiddenAtFooter ? "pointer-events-none opacity-0" : "opacity-100"
+      }`}
+      style={{ bottom: "max(1.25rem, env(safe-area-inset-bottom))" }}
+    >
       <PillNav
         logo={<Logo className="size-5" />}
         logoAlt={nav.logoText}

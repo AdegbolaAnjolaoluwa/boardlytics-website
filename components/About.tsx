@@ -2,6 +2,7 @@ import Image from "next/image";
 import { about } from "@/content/site";
 import { SectionHead } from "./ui/SectionHead";
 import { Card } from "./ui/Card";
+import { ExpandableBio } from "./ui/ExpandableBio";
 
 export function About() {
   return (
@@ -21,7 +22,7 @@ export function About() {
           ))}
         </div>
 
-        <div className="flex flex-col gap-10">
+        <div className="flex flex-col gap-10 pb-16 sm:pb-20">
           {about.people.map((person) => (
             <div
               key={person.name}
@@ -43,11 +44,7 @@ export function About() {
                 <p className="text-[12.5px] font-semibold uppercase tracking-[0.14em] text-royal">{person.role}</p>
                 <h3 className="text-[24px] font-semibold tracking-tight text-fg-strong">{person.name}</h3>
                 <p className="text-[12.5px] text-muted">{person.credentials}</p>
-                <div className="mt-2 flex flex-col gap-3 text-[15px] leading-relaxed text-fg">
-                  {(Array.isArray(person.bio) ? person.bio : [person.bio]).map((paragraph, i) => (
-                    <p key={i}>{paragraph}</p>
-                  ))}
-                </div>
+                <ExpandableBio paragraphs={Array.isArray(person.bio) ? person.bio : [person.bio]} />
               </div>
             </div>
           ))}
