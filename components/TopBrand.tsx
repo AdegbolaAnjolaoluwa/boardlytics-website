@@ -16,15 +16,15 @@ export function TopBrand() {
         />
       </Link>
       <div className="absolute right-4 top-1/2 hidden -translate-y-1/2 items-center gap-4 text-[14px] font-medium sm:right-6 sm:flex">
-        <Link href={nav.login.href} className="text-fg transition-colors hover:text-royal">
+        <span className="cursor-default text-muted" aria-disabled="true">
           {nav.login.label}
-        </Link>
-        <Link
-          href={nav.signup.href}
-          className="rounded-full bg-royal px-4 py-2 text-white shadow-sm transition-colors hover:bg-royal/90"
+        </span>
+        <span
+          className="cursor-default rounded-full bg-muted/40 px-4 py-2 text-white/70 shadow-sm"
+          aria-disabled="true"
         >
           {nav.signup.label}
-        </Link>
+        </span>
       </div>
     </div>
   );

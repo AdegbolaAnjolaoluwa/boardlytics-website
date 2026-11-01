@@ -41,11 +41,9 @@ export function BottomNav() {
     return () => observer.disconnect();
   }, [pathname]);
 
-  // The waitlist CTA already appears as its own button throughout every page,
-  // so on mobile we drop it from the pill.
-  const items = isMobile
-    ? nav.links
-    : [...nav.links, nav.login, nav.signup];
+  // Log in / Sign up aren't real pages yet, so they're left out of the pill
+  // entirely rather than linking to a 404.
+  const items = nav.links;
 
   if (isMobile) {
     return (
@@ -63,8 +61,6 @@ export function BottomNav() {
                 {item.label}
               </Link>
             ))}
-            <Link href={nav.login.href} onClick={() => setMenuOpen(false)}>{nav.login.label}</Link>
-            <Link href={nav.signup.href} onClick={() => setMenuOpen(false)}>{nav.signup.label}</Link>
             <Link href="/#waitlist" onClick={() => setMenuOpen(false)}>{nav.ctaDesktop}</Link>
           </nav>
         )}
