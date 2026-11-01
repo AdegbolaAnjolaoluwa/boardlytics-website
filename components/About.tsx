@@ -1,14 +1,28 @@
 import Image from "next/image";
 import { about } from "@/content/site";
 import { SectionHead } from "./ui/SectionHead";
+import { Card } from "./ui/Card";
+import { ExpandableBio } from "./ui/ExpandableBio";
 
 export function About() {
   return (
     <section id="about" className="bg-bg py-24 sm:py-36">
-      <div className="mx-auto flex max-w-[1180px] flex-col gap-12 px-4 sm:px-6">
+      <div className="mx-auto flex max-w-[1180px] flex-col gap-16 px-4 sm:px-6">
         <SectionHead eyebrow={about.eyebrow} heading={about.heading} lead={about.lead} />
 
-        <div className="flex flex-col gap-10">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
+          {about.values.map((value) => (
+            <Card key={value.label}>
+              <p className="mb-3 text-[12.5px] font-semibold uppercase tracking-[0.14em] text-royal">
+                {value.label}
+              </p>
+              <h3 className="mb-3 text-[20px] font-semibold leading-snug text-fg-strong">{value.heading}</h3>
+              <p className="text-[15px] leading-relaxed text-muted">{value.body}</p>
+            </Card>
+          ))}
+        </div>
+
+        <div className="flex flex-col gap-10 pb-16 sm:pb-20">
           {about.people.map((person) => (
             <div
               key={person.name}
@@ -30,7 +44,7 @@ export function About() {
                 <p className="text-[12.5px] font-semibold uppercase tracking-[0.14em] text-royal">{person.role}</p>
                 <h3 className="text-[24px] font-semibold tracking-tight text-fg-strong">{person.name}</h3>
                 <p className="text-[12.5px] text-muted">{person.credentials}</p>
-                <p className="mt-2 text-[15px] leading-relaxed text-fg">{person.bio}</p>
+                <ExpandableBio paragraphs={Array.isArray(person.bio) ? person.bio : [person.bio]} />
               </div>
             </div>
           ))}
