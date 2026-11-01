@@ -11,6 +11,8 @@ export const nav = {
   ],
   ctaDesktop: "Join the waiting list",
   ctaMobile: "Join the list",
+  login: { label: "Log in", href: "/login" },
+  signup: { label: "Sign up", href: "/register" },
 };
 
 export const hero = {
@@ -88,15 +90,52 @@ export const visionMission = {
 
 export const about = {
   eyebrow: "About us",
-  heading: "Built by someone who has sat where you sit.",
-  lead: "Boardlytics is founded by a company secretary who wanted better tools in practice.",
+  heading: "Built by people who have sat where you sit.",
+  lead: "Boardlytics is led by governance practitioners who have run the board process by hand, long before they set out to build the software for it.",
+  values: [
+    {
+      label: "Practitioner-built",
+      heading: "Designed from the board table, not around it",
+      body: "Every workflow in Boardlytics was shaped by people who have convened meetings, chased signatures and kept statutory registers themselves — not by guessing at what a company secretary needs.",
+    },
+    {
+      label: "Evidence first",
+      heading: "Every decision, properly documented",
+      body: "Boards are judged on their record. Boardlytics treats minutes, votes and conflicts as evidence to be captured accurately, not paperwork to be caught up on later.",
+    },
+    {
+      label: "Human in charge",
+      heading: "AI that assists, never decides",
+      body: "Our AI briefs directors, flags compliance gaps and drafts minutes — but authority and accountability stay exactly where they belong: with the chair, the directors and the company secretary.",
+    },
+  ],
   people: [
+    {
+      photo: "/team/joyce-abu-mallam.png",
+      role: "Managing Director/CEO",
+      name: "Joyce Abu Mallam",
+      credentials: "LL.B, University of Abuja · Nigerian Law School",
+      bio: [
+        "Joyce Abu Mallam is the Managing Director/CEO of Boardlytics, a lawyer and corporate governance professional with extensive practical experience in company secretarial practice and board management. She has served as Company Secretary to over 10 micro, small and medium-sized enterprises (MSMEs) and several non-profit organisations, providing governance support and helping organisations establish and maintain effective corporate governance structures. Her experience gives her a practical understanding of the responsibilities of boards, directors and company secretaries, and of the systems required to support effective decision-making.",
+        "In that work, Joyce manages the board process from end to end: convening board and general meetings, preparing and coordinating board papers, recording minutes, drafting resolutions, maintaining statutory registers and keeping each organisation compliant with its filing obligations to the Corporate Affairs Commission. She has also helped young companies and non-profits put governance in place from the start, from board structures and governing documents to the routines that keep records accurate and decisions properly documented.",
+        "She is Deputy Managing Partner at GPS Legal & Consulting in Abuja, where she leads the firm's company secretarial and governance support for corporate clients alongside its business law and regulatory compliance advisory.",
+        "Her governance practice is grounded in regulated, institutional settings. As Legal and Compliance Officer at Zenith Bank in The Gambia, she worked with the bank's Legal Counsel and Company Secretary, maintained the statutory registers and records required under Gambian company law, and supported secretarial, policy and compliance work within a regulated financial institution. Earlier, at the Corporate Affairs Commission, she registered more than 100 businesses and advised start-ups on their incorporation and early obligations. At Reformers League she led prison decongestion and pro bono legal services for three years and received the organisation's Merit Award in 2019.",
+        "Joyce's appointment as Managing Director/CEO of Boardlytics follows directly from this work. She has prepared the board packs, chased the signatures, written the minutes and kept the registers that Boardlytics is built to simplify, and she knows where manual governance processes slow boards down and expose organisations to risk. That firsthand experience shapes how she leads the company and how its products are designed for directors and company secretaries.",
+        "Joyce holds a Bachelor of Laws (LL.B) from the University of Abuja and trained at the Nigerian Law School.",
+      ],
+    },
     {
       photo: "/team/hossana-gani.jpg",
       role: "Founder",
       name: "Hossana Gani, Esq.",
       credentials: "LL.B, B.L., MBA, ACIS, DipCorpGov, DipESG",
-      bio: "Hossana is a Nigerian-qualified barrister and solicitor and a chartered company secretary, with more than a decade of legal, governance and regulatory experience across law firms, development finance and financial services. He is Manager, Regulatory Affairs and Company Secretariat at MoMo Payment Service Bank, within MTN Group Fintech, and founding partner of GPS Legal & Consulting. He founded Boardlytics to give African boards and company secretaries the governance tools he wanted in practice.",
+      bio: [
+        "Hossana Gani founded Boardlytics on the conviction that institutions across the globe deserve governance that is as rigorous, transparent and intelligent as the highest standards demand, and that technology can make this possible.",
+        "His founding vision for Boardlytics is to help build a future where every board meeting is effectively managed, every decision is properly documented and supported by evidence, and every director has the tools and information needed to discharge their responsibilities effectively.",
+        "At the heart of this vision is AI-enabled governance support: intelligent tools that brief directors, monitor compliance, assist with the preparation of board minutes, and provide governance insights to boards, while preserving human oversight and ensuring that ultimate authority and accountability remain with the chair, directors and other responsible decision-makers.",
+        "Hossana is a Nigerian-qualified barrister and solicitor and a Chartered Company Secretary (ACIS), with extensive experience in corporate governance, regulatory affairs, legal practice and company secretarial administration. He holds an LL.B, a B.L. and an MBA, alongside professional diplomas in Corporate Governance and Environmental, Social and Governance (ESG) from The Corporate Governance Institute, UK & Ireland, where he is a member.",
+        "Having conceived the idea and established the founding vision for Boardlytics, Hossana has entrusted its execution to the company's designated leadership. He remains a shareholder and holds no board, executive or operational position in the company. Boardlytics is governed by its Board of Directors and managed day to day by its management team.",
+      ],
     },
   ],
 };

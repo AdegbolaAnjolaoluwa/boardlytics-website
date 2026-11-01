@@ -30,7 +30,9 @@ export function BottomNav() {
 
   // The waitlist CTA already appears as its own button throughout every page,
   // so on mobile we drop it from the pill.
-  const items = isMobile ? nav.links : [...nav.links, { label: nav.ctaDesktop, href: "/#waitlist" }];
+  const items = isMobile
+    ? nav.links
+    : [...nav.links, nav.login, nav.signup];
 
   if (isMobile) {
     return (
@@ -45,6 +47,8 @@ export function BottomNav() {
                 {item.label}
               </Link>
             ))}
+            <Link href={nav.login.href} onClick={() => setMenuOpen(false)}>{nav.login.label}</Link>
+            <Link href={nav.signup.href} onClick={() => setMenuOpen(false)}>{nav.signup.label}</Link>
             <Link href="/#waitlist" onClick={() => setMenuOpen(false)}>{nav.ctaDesktop}</Link>
           </nav>
         )}
